@@ -53,9 +53,9 @@ bindsym $mod+d exec dmenu_run
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus down
+bindsym $mod+j focus left
+bindsym $mod+l focus down
 bindsym $mod+k focus up
-bindsym $mod+l focus left
 bindsym $mod+odiaeresis focus right
 
 # alternatively, you can use the cursor keys:
@@ -65,9 +65,9 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move down
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+l move down
 bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move left
 bindsym $mod+Shift+odiaeresis move right
 
 # alternatively, you can use the cursor keys:
@@ -176,22 +176,22 @@ bindsym $mod+r mode "resize"
 # move floating windows with keys
 bindsym $mod+m mode "move" focus floating
 mode "move" {
-    bindsym $mod+Tab focus right
+            bindsym $mod+Tab focus right
 
-    bindsym Left  move left
-    bindsym Down  move down
-    bindsym Up    move up
-    bindsym Right move right
+            bindsym Left  move left
+            bindsym Down  move down
+            bindsym Up    move up
+            bindsym Right move right
 
-    bindsym h     move left
-    bindsym j     move down
-    bindsym k     move up
-    bindsym l     move right
+            bindsym h     move left
+            bindsym j     move down
+            bindsym k     move up
+            bindsym l     move right
 
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
+            # back to normal: Enter or Escape
+            bindsym Return mode "default"
+            bindsym Escape mode "default"
+        }
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -199,7 +199,29 @@ mode "move" {
 #        status_command i3status
 #}
 
+# Configure 5px of space between windows and to the screen edges.
+gaps inner 5px
+
+# Configure an additional 5px of extra space to the screen edges,
+# for a total gap of 10px to the screen edges, and 5px between windows.
+gaps outer 5px
+
+# Overwrite gaps to 0, I need all the space I can get on workspace 3.
+#workspace 3 gaps inner 0
+#workspace 3 gaps outer 0
+
+# Only enable outer gaps when there is exactly one window or split container on the workspace.
+smart_gaps inverse_outer
+
+# Set border settings
+default_border pixel 1 
+# class                 border  backgr. text    indicator child_border
+client.focused          #33cc33 #285577 #ffffff #33cc33   #008F11
+
+# Autostart
 exec "setxkbmap -layout ch"
 exec --no-startup-id vmware-user-suid-wrapper
 exec --no-startup-id polybar -r i3
-default_border pixel 1
+bindsym ctrl+shift+c exec --no-startup-id /home/kali/scripts/copy.sh
+# Run initialy to set wallpaper once:  nitrogen ~/Pictures
+exec --no-startup-id nitrogen --restore
