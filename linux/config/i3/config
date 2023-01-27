@@ -218,6 +218,9 @@ default_border pixel 1
 # class                 border  backgr. text    indicator child_border
 client.focused          #33cc33 #285577 #ffffff #33cc33   #008F11
 
+# Disable focus wrapping
+focus_wrapping no
+
 # Autostart
 exec "setxkbmap -layout ch"
 exec --no-startup-id vmware-user-suid-wrapper
