@@ -1,3 +1,5 @@
 set number
-nmap l <Left>
+nmap j <Left>
+nmap k <Up>
+nmap l <Down>
 nmap ö <Right>
