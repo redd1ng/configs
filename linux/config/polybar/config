@@ -184,10 +184,10 @@ type = internal/network
 interface = wlan0
 interval = 3.0
 
-label-connected = wlan0: %essid% - %local_ip%
+label-connected = %ifname%: %essid% - %local_ip%
 label-connected-foreground = ${colors.green}
 
-label-disconnected = wlan0: down/hotspot %essid% - %local_ip%
+label-disconnected = %ifname%: down/hotspot %essid% - %local_ip%
 label-disconnected-foreground = ${colors.red}
 
 ramp-signal-0 = 
