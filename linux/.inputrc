@@ -1,0 +1,4 @@
+# bind Ctrl+k to Up
+bind '"\C-k":"\e[A"'
+# bind Ctrl+l to Down
+bind '"\C-l":"\e[B"'
